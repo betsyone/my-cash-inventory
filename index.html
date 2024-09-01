@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCash Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+            body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 0px;
+        }
+        .form-container {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select, button {
+            font-size: 1em;
+            margin-bottom: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+     /* Navigation Bar */
+     .navbar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .hamburger {
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .menu {
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 200px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        .menu a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 0;
+        }
+        .menu a:hover {
+            background-color: #f1f1f1;
+        }
+        .close-btn {
+            font-size: 1.5em;
+            cursor: pointer;
+            align-self: flex-end;
+            color: #333;
+        }
+        .menu-open .menu {
+            display: flex;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td button {
+            padding: 5px 10px;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            th, td {
+                font-size: 0.9em;
+            }
+            td button {
+                padding: 5px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+
+<body>
+    <div class="navbar">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <h1>GCash Inventory</h1>
+    </div>
+    <div class="menu" id="menu">
+        <div class="close-btn" onclick="toggleMenu()">×</div>
+        <a href="#">This application allows you to track GCash transactions, including cash in, cash out, and associated fees. Keep a detailed log and view summaries of your transactions for better financial management.</a>
+        <a href="#">Last Updated: August 2, 2024</a>
+        <a href="#">Developer: ItechRRM</a>
+        <a href="#">This website is a work in progress. I am currently working on it.</a>
+    </div>
+    <div class="container">
+        <form id="transactionForm" class="form-container">
+            <label for="type">Transaction Type:</label>
+            <select id="type" required>
+                <option value="cashin">Cash In</option>
+                <option value="cashout">Cash Out</option>
+            </select>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required>
+
+<label for="fee">Fee:</label>
+<input type="number" id="fee" required>
+
+
+            <label for="reference">Reference:</label>
+            <input type="number" id="reference" maxlength="4" pattern="\d{4}" title="Please enter the last 4 digits" required>
+
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <h2>Transactions</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Fee</th>
+                        <th>Reference</th>
+                        <th>Date & Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="transactionTable">
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cash In</th>
+                    <th>Cash Out</th>
+                    <th>Fees</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span id="totalCashIn">0</span></td>
+                    <td><span id="totalCashOut">0</span></td>
+                    <td><span id="totalFees">0</span></td>
+                    <td><span id="balance">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('menu-open');
+        }
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>
