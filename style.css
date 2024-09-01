@@ -1,0 +1,196 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form label, form input, form select, form button {
+    width: 100%;
+}
+
+form button {
+    grid-column: span 3;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    form {
+        grid-template-columns: 1fr 1fr;
+        gap: 5px;
+    }
+
+    form button {
+        grid-column: span 2;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    form button {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    table, th, td {
+        font-size: 12px;
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    margin: 0px;
+}
+.form-container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+label {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 5px;
+}
+input, select, button {
+    font-size: 1em;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.description, .developer-details {
+    margin-top: 0;
+    font-size: 0.8em;
+    color: #555;
+    text-align: center;
+}
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navbar .hamburger {
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+.menu {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+.menu a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 0;
+}
+.menu a:hover {
+    background-color: #f1f1f1;
+}
+.close-btn {
+    font-size: 1.5em;
+    cursor: pointer;
+    align-self: flex-end;
+    color: #333;
+}
+.menu-open .menu {
+    display: flex;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    background-color: #f2f2f2;
+}
+td button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+@media (max-width: 600px) {
+    th, td {
+        font-size: 0.9em;
+    }
+    td button {
+        padding: 5px;
+        font-size: 0.8em;
+    }
+}
+
